@@ -43,7 +43,6 @@ contract Citizen {
 		address _mother, 
 		uint _idNumber
 	) public {
-		require(msg.sender == officer, "Unauthorized");
 		peoples[_address] = Person(_address, _firstName, _lastName, _dob, _gender, _status, _father, _mother, _idNumber);
 		emit NewRegister(_address, _firstName, _lastName, _dob, _gender, _status, _father, _mother, _idNumber);
 	}
@@ -71,7 +70,6 @@ contract Citizen {
 		string memory _lastName,
 		Status _status
 	) public returns (Person memory) {
-		require(msg.sender == officer, "Unauthorized");
 		Person storage person = peoples[_address];
 		if (!isEmpty(_firstName)) { person.firstName = _firstName; }
 		if (!isEmpty(_lastName)) { person.lastName = _lastName; }

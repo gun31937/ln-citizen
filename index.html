@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>
+      index motion topic vendor cash tide cute mule core distance lemon cloth
+      Balance :
+      <span id="balance">0</span>
+    </h1>
+    <button id="betButton">Betting</button>
+    <button id="releaseButton">Release</button>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  </body>
+</html>
+
+    <script>
+        $(document).ready(function(){
+
+            const contractAddress = `0xa4ceE45cb776A35888e07730986E1E2e1E21f035`; 
+            const abi = JSON.parse(`[{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"addressNumber","type":"address"},{"indexed":false,"internalType":"string","name":"firstName","type":"string"},{"indexed":false,"internalType":"string","name":"lastName","type":"string"},{"indexed":false,"internalType":"uint256","name":"dob","type":"uint256"},{"indexed":false,"internalType":"enum Citizen.Gender","name":"gender","type":"uint8"},{"indexed":false,"internalType":"enum Citizen.Status","name":"status","type":"uint8"},{"indexed":false,"internalType":"address","name":"father","type":"address"},{"indexed":false,"internalType":"address","name":"mother","type":"address"},{"indexed":false,"internalType":"uint256","name":"idNumber","type":"uint256"}],"name":"NewRegister","type":"event"},{"constant":true,"inputs":[],"name":"officer","outputs":[{"internalType":"address","name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"peoples","outputs":[{"internalType":"address","name":"addressNumber","type":"address"},{"internalType":"string","name":"firstName","type":"string"},{"internalType":"string","name":"lastName","type":"string"},{"internalType":"uint256","name":"dob","type":"uint256"},{"internalType":"enum Citizen.Gender","name":"gender","type":"uint8"},{"internalType":"enum Citizen.Status","name":"status","type":"uint8"},{"internalType":"address","name":"father","type":"address"},{"internalType":"address","name":"mother","type":"address"},{"internalType":"uint256","name":"idNumber","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_address","type":"address"},{"internalType":"string","name":"_firstName","type":"string"},{"internalType":"string","name":"_lastName","type":"string"},{"internalType":"uint256","name":"_dob","type":"uint256"},{"internalType":"enum Citizen.Gender","name":"_gender","type":"uint8"},{"internalType":"enum Citizen.Status","name":"_status","type":"uint8"},{"internalType":"address","name":"_father","type":"address"},{"internalType":"address","name":"_mother","type":"address"},{"internalType":"uint256","name":"_idNumber","type":"uint256"}],"name":"register","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"assignOfficer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"get","outputs":[{"components":[{"internalType":"address","name":"addressNumber","type":"address"},{"internalType":"string","name":"firstName","type":"string"},{"internalType":"string","name":"lastName","type":"string"},{"internalType":"uint256","name":"dob","type":"uint256"},{"internalType":"enum Citizen.Gender","name":"gender","type":"uint8"},{"internalType":"enum Citizen.Status","name":"status","type":"uint8"},{"internalType":"address","name":"father","type":"address"},{"internalType":"address","name":"mother","type":"address"},{"internalType":"uint256","name":"idNumber","type":"uint256"}],"internalType":"struct Citizen.Person","name":"","type":"tuple"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"getStatus","outputs":[{"internalType":"enum Citizen.Status","name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"getParent","outputs":[{"components":[{"internalType":"address","name":"addressNumber","type":"address"},{"internalType":"string","name":"firstName","type":"string"},{"internalType":"string","name":"lastName","type":"string"},{"internalType":"uint256","name":"dob","type":"uint256"},{"internalType":"enum Citizen.Gender","name":"gender","type":"uint8"},{"internalType":"enum Citizen.Status","name":"status","type":"uint8"},{"internalType":"address","name":"father","type":"address"},{"internalType":"address","name":"mother","type":"address"},{"internalType":"uint256","name":"idNumber","type":"uint256"}],"internalType":"struct Citizen.Person","name":"","type":"tuple"},{"components":[{"internalType":"address","name":"addressNumber","type":"address"},{"internalType":"string","name":"firstName","type":"string"},{"internalType":"string","name":"lastName","type":"string"},{"internalType":"uint256","name":"dob","type":"uint256"},{"internalType":"enum Citizen.Gender","name":"gender","type":"uint8"},{"internalType":"enum Citizen.Status","name":"status","type":"uint8"},{"internalType":"address","name":"father","type":"address"},{"internalType":"address","name":"mother","type":"address"},{"internalType":"uint256","name":"idNumber","type":"uint256"}],"internalType":"struct Citizen.Person","name":"","type":"tuple"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_address","type":"address"},{"internalType":"string","name":"_firstName","type":"string"},{"internalType":"string","name":"_lastName","type":"string"},{"internalType":"enum Citizen.Status","name":"_status","type":"uint8"}],"name":"update","outputs":[{"components":[{"internalType":"address","name":"addressNumber","type":"address"},{"internalType":"string","name":"firstName","type":"string"},{"internalType":"string","name":"lastName","type":"string"},{"internalType":"uint256","name":"dob","type":"uint256"},{"internalType":"enum Citizen.Gender","name":"gender","type":"uint8"},{"internalType":"enum Citizen.Status","name":"status","type":"uint8"},{"internalType":"address","name":"father","type":"address"},{"internalType":"address","name":"mother","type":"address"},{"internalType":"uint256","name":"idNumber","type":"uint256"}],"internalType":"struct Citizen.Person","name":"","type":"tuple"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"internalType":"string","name":"s1","type":"string"}],"name":"isEmpty","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"pure","type":"function"},{"constant":true,"inputs":[{"internalType":"enum Citizen.Status","name":"s1","type":"uint8"}],"name":"isEmptyStatus","outputs":[{"internalType":"bool","name":"","type":"bool"}],"payable":false,"stateMutability":"pure","type":"function"}]`);
+            
+            web3socket = new Web3(new Web3.providers.WebsocketProvider('wss://ropsten.infura.io/ws/v3/a79e6eefa1eb4c0fbef770d74d549db7'),);
+            socketInstance = new web3socket.eth.Contract(abi,contractAddress);
+            socketInstance.events.NewRegister((err, events) => {console.log(err, events)})
+            
+            const metaMaskAddr = `0x6E98A0eF08a683f1Eb4e1847B9B87bE235177980`;
+            const web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/a79e6eefa1eb4c0fbef770d74d549db7'),);
+            const contract = new web3.eth.Contract(abi, contractAddress, {
+                from: metaMaskAddr
+            });
+            
+
+            const registerPeople = async () => {
+                const officer = await contract.methods.assignOfficer().call()
+                const resisterPeople = await contract.methods.register(metaMaskAddr, "Gun", "LN","123",1,1,metaMaskAddr,metaMaskAddr,"123456").call()
+                const people = await contract.methods.get(metaMaskAddr).call()
+                console.log(people);
+            }
+
+            registerPeople();
+            
+
+        });
+    </script>
